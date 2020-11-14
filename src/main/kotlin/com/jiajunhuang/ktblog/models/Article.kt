@@ -18,6 +18,8 @@ fun loadArticles(dirName: String): List<Article> {
 
     File(dirName).walkTopDown().filter { it.isFile() }.forEach { articles.add(loadArticle(dirName, it.name)) }
 
+    articles.sortByDescending { it -> it.fileName }
+
     return articles
 }
 
